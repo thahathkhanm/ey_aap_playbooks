@@ -1,0 +1,6 @@
+---
+- name: NTP and DNS Validation
+  hosts: all
+  become: true
+  roles:
+    - ntp_dns_validation

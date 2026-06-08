@@ -1,0 +1,15 @@
+---
+- name: Check Chrony Sources
+  command: chronyc sources -v
+  register: chrony_sources
+  changed_when: false
+- name: Check DNS Resolution
+  command: nslookup {{ dns_test_domain }}
+  register: dns_check
+  changed_when: false
+- name: Display Chrony Output
+  debug:
+    var: chrony_sources.stdout_lines
+- name: Display DNS Output
+  debug:
+    var: dns_check.stdout_lines
