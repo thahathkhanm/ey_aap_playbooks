@@ -13,3 +13,10 @@
 - name: Display DNS Output
   debug:
     var: dns_check.stdout_lines
+- name: Check Current Timezone
+  command: timedatectl show --property=Timezone --value
+  register: timezone_check
+  changed_when: false
+- name: Display Timezone
+  debug:
+    var: timezone_check.stdout
