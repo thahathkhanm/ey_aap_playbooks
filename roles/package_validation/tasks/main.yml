@@ -1,0 +1,9 @@
+---
+- name: Gather Package Facts
+  package_facts:
+    manager: auto
+- name: Check Required Packages
+  debug:
+    msg: "{{ item }} is installed"
+  loop: "{{ required_packages }}"
+  when: item in ansible_facts.packages

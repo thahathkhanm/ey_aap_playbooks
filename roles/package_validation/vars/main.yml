@@ -1,0 +1,4 @@
+required_packages:
+ - chrony
+ - openssh-server
+ - rsyslog
