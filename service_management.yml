@@ -1,0 +1,6 @@
+---
+- name: Service Management
+  hosts: all
+  become: true
+  roles:
+    - service_management
