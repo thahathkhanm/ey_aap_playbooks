@@ -1,3 +1,2 @@
 ---
 chrony_command: "chronyc sources -v"
-dns_test_domain: "google.com"

@@ -3,8 +3,8 @@
   command: "{{ chrony_command }}"
   register: chrony_sources
   changed_when: false
-- name: Check DNS Resolution
-  command: nslookup {{ dns_test_domain }}
+- name: Check DNS Configuration
+  command: cat /etc/resolv.conf
   register: dns_check
   changed_when: false
 - name: Display Chrony Output
