@@ -1,0 +1,6 @@
+---
+- name: Package Installation
+  hosts: all
+  become: true
+  roles:
+    - package_installation
