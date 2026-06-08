@@ -1,0 +1,6 @@
+critical_services:
+ - chronyd
+ - sshd
+ - NetworkManager
+ - rsyslog
+ - firewalld
