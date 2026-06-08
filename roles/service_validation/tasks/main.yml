@@ -1,0 +1,12 @@
+---
+- name: Check Service Status
+  command: systemctl is-active {{ item }}
+  loop:
+   - chronyd
+   - sshd
+   - NetworkManager
+  register: service_status
+  changed_when: false
+- name: Display Service Status
+  debug:
+    var: service_status.results

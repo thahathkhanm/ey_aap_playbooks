@@ -1,0 +1,6 @@
+---
+- name: Critical Service Status Validation
+  hosts: all
+  become: true
+  roles:
+    - service_validation
