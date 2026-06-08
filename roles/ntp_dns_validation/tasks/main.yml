@@ -1,6 +1,6 @@
 ---
 - name: Check Chrony Sources
-  command: "{{ chrony_command }}"
+  command: chronyc sources -v
   register: chrony_sources
   changed_when: false
 - name: Check DNS Configuration
