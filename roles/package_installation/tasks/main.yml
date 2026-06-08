@@ -9,4 +9,4 @@
     name: "{{ packages_to_install }}"
     state: present
     update_cache: yes
-  when: ansible_os_family == "Debian"
+  when: ansible_os_family == "Ubuntu"
