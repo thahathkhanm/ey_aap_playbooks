@@ -14,7 +14,7 @@
         state: present
 
     - name: Verify user
-      command: id user
+      command: id thahath
       register: user_details
 
     - name: Display user_details
