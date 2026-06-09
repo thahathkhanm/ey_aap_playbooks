@@ -1,0 +1,6 @@
+---
+- name: Patch Automation
+  hosts: all
+  become: true
+  roles:
+    - patch_automation
