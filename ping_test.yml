@@ -1,21 +1,8 @@
 ---
-- name: ping and user create
+- name: ping test
   hosts: all
   gather_facts: no
 
   tasks:
     - name: ping target host
       ping:
-
-    - name: create user
-      user:
-        name: thahath
-        state: present
-
-    - name: verify user
-      command: id thahath
-      register: user_details
-
-    - name: Display user user details
-      debug:
-        var: user_details.stdout 
