@@ -3,17 +3,44 @@
   command: getenforce
   register: selinux_status
   changed_when: false
-
 - name: Display SELinux Status
   debug:
     var: selinux_status.stdout
-
 - name: Check SSH Root Login Setting
   command: grep "^PermitRootLogin" /etc/ssh/sshd_config
   register: root_login
   ignore_errors: true
   changed_when: false
-
 - name: Display SSH Root Login
   debug:
     var: root_login.stdout
+- name: Check SSH Password Authentication Setting
+  command: grep "^PasswordAuthentication" /etc/ssh/sshd_config
+  register: password_auth
+  ignore_errors: true
+  changed_when: false
+- name: Display SSH Password Authentication
+  debug:
+    var: password_auth.stdout
+- name: Check /etc/passwd Permissions
+  stat:
+    path: /etc/passwd
+  register: passwd_file
+- name: Display /etc/passwd Permissions
+  debug:
+    var: passwd_file.stat.mode
+- name: Check /etc/shadow Permissions
+  stat:
+    path: /etc/shadow
+  register: shadow_file
+- name: Display /etc/shadow Permissions
+  debug:
+    var: shadow_file.stat.mode
+- name: Check Firewalld Status
+  command: systemctl is-active firewalld
+  register: firewall_status
+  changed_when: false
+  failed_when: false
+- name: Display Firewalld Status
+  debug:
+    var: firewall_status.stdout
