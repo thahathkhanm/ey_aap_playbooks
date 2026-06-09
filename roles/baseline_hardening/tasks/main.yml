@@ -1,0 +1,19 @@
+---
+- name: Check SELinux Status
+  command: getenforce
+  register: selinux_status
+  changed_when: false
+
+- name: Display SELinux Status
+  debug:
+    var: selinux_status.stdout
+
+- name: Check SSH Root Login Setting
+  command: grep "^PermitRootLogin" /etc/ssh/sshd_config
+  register: root_login
+  ignore_errors: true
+  changed_when: false
+
+- name: Display SSH Root Login
+  debug:
+    var: root_login.stdout
