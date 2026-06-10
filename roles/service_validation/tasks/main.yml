@@ -6,4 +6,5 @@
   changed_when: false
 - name: Display Service Status
   debug:
-    var: service_status.results
+    msg: "{{ item.item }} : {{ item.stdout}}"
+  loop: "{{ service_status.results}}"
