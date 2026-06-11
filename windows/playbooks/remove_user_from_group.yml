@@ -1,0 +1,7 @@
+---
+- name: Remove User From Group
+  hosts: all
+  gather_facts: no
+
+  roles:
+    - remove_user_from_group
