@@ -1,0 +1,8 @@
+---
+- name: Get Local Administrators
+  ansible.windows.win_shell: |
+    Get-LocalGroupMember -Group "{{ admin_group }}"
+  register: admin_members
+- name: Display Administrators
+  debug:
+    var: admin_members.stdout_lines

@@ -1,0 +1,7 @@
+---
+- name: Local Admin Membership Report
+  hosts: windows
+  gather_facts: no
+
+  roles:
+    - local_user_privilege_checks
