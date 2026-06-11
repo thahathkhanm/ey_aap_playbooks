@@ -1,0 +1,7 @@
+---
+- name: System Health Report
+  hosts: all
+  become: true
+  
+  roles:
+    - system_health_report

@@ -3,4 +3,4 @@
   hosts: all
   become: true
   roles:
-    - service_validation
+    - critical_service_status_checks

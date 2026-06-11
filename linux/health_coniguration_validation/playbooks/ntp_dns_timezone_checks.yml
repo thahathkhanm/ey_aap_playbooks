@@ -3,4 +3,4 @@
   hosts: all
   become: true
   roles:
-    - ntp_dns_validation
+    - ntp_dns_timezone_checks

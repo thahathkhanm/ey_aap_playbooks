@@ -1,0 +1,29 @@
+---
+- name: Get OS Information
+  command: uname -a
+  register: os_info
+  changed_when: false
+- name: Get CPU Information
+  command: lscpu
+  register: cpu_info
+  changed_when: false
+- name: Get Memory Information
+  command: free -h
+  register: memory_info
+  changed_when: false
+- name: Get Disk Utilization
+  command: df -h
+  register: disk_info
+  changed_when: false
+- name: Display OS Information
+  debug:
+    var: os_info.stdout_lines
+- name: Display CPU Information
+  debug:
+    var: cpu_info.stdout_lines
+- name: Display Memory Information
+  debug:
+    var: memory_info.stdout_lines
+- name: Display Disk Information
+  debug:
+    var: disk_info.stdout_lines
