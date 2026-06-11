@@ -1,0 +1,7 @@
+---
+- name: Disabled Local User Report
+  hosts: all
+  gather_facts: no
+  
+  roles:
+    - disabled_local_user_report

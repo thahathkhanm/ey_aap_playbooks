@@ -1,0 +1,7 @@
+---
+- name: Delete Local User
+  hosts: all
+  gather_facts: no
+  
+  roles:
+    - delete_local_user

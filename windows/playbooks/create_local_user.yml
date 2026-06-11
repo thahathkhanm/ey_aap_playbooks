@@ -1,0 +1,7 @@
+---
+- name: Create Local User
+  hosts: all
+  gather_facts: no
+  
+  roles:
+    - create_local_user

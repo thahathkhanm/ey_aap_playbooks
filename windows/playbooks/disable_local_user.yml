@@ -1,0 +1,7 @@
+---
+- name: Disable Local User
+  hosts: all
+  gather_facts: no
+
+  roles: 
+    - disable_local_user

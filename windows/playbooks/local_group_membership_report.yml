@@ -1,0 +1,7 @@
+---
+- name: Local Group Membership Report
+  hosts: all
+  gather_facts: no
+  
+  roles:
+    - local_group_membership_report

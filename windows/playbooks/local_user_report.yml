@@ -1,0 +1,7 @@
+---
+- name: Local User Report
+  hosts: all
+  gather_facts: no
+
+  roles:
+    - local_user_report

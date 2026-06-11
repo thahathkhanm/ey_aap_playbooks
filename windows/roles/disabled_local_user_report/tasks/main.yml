@@ -1,0 +1,8 @@
+---
+- name: Get Disabled Local Users
+  ansible.windows.win_shell: |
+    Get-LocalUser | Where-Object {$_.Enabled -eq $false}
+  register: disabled_users
+- name: Display Disabled Users
+  debug:
+    var: disabled_users.stdout_lines

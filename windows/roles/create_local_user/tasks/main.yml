@@ -1,0 +1,13 @@
+---
+- name: Create Local User
+  ansible.windows.win_user:
+    name: "{{ user_name }}"
+    password: "{{ user_password }}"
+    state: present
+- name: Verify User Creation
+  ansible.windows.win_shell: |
+    Get-LocalUser -Name "{{ user_name }}"
+  register: user_details
+- name: Display User Details
+  debug:
+    var: user_details.stdout_lines

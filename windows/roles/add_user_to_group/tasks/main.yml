@@ -1,0 +1,14 @@
+---
+- name: Add User To Group
+  ansible.windows.win_group_membership:
+    name: "{{ group_name }}"
+    members:
+      - "{{ user_name }}"
+    state: present
+- name: Verify Group Membership
+  ansible.windows.win_shell: |
+    Get-LocalGroupMember -Group "{{ group_name }}"
+  register: group_members
+- name: Display Group Members
+  debug:
+    var: group_members.stdout_lines

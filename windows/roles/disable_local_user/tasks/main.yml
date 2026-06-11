@@ -1,0 +1,12 @@
+---
+- name: Disable Local User
+  ansible.windows.win_user:
+    name: "{{ user_name }}"
+    account_disabled: true
+- name: Verify User Status
+  ansible.windows.win_shell: |
+    Get-LocalUser -Name "{{ user_name }}" | Select-Object Name, Enabled
+  register: user_status
+- name: Display User Status
+  debug:
+    var: user_status.stdout_lines
